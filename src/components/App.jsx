@@ -13,24 +13,23 @@ export class App extends Component {
 
   onBtnClick = evt => {
     const { name } = evt.currentTarget;
-    console.log(evt.currentTarget.name)
-    this.setState(prevState => ({
-      [name]: prevState[name] + 1,
-    }), () => console.log(this.state));
+    console.log(evt.currentTarget.name);
+    this.setState(
+      prevState => ({
+        [name]: prevState[name] + 1,
+      }),
+      () => console.log(this.state)
+    );
   };
 
   countTotalFeedback = () => {
-    return (
-      this.state.good + this.state.neutral + this.state.bad
-    )
-  }
+    return this.state.good + this.state.neutral + this.state.bad;
+  };
 
   countPositiveFeedbackPercentage = () => {
-    const {good, neutral, bad} = this.state
-    return (
-      Math.round(good / (good + neutral + bad) * 100)
-    )
-  }
+    const { good, neutral, bad } = this.state;
+    return Math.round((good / (good + neutral + bad)) * 100);
+  };
 
   render() {
     return (
@@ -42,16 +41,17 @@ export class App extends Component {
           ></FeedbackOptions>
         </Section>
         <Section title="Statistics">
-          {(this.state.good || this.state.neutral || this.state.bad) 
-          ? <Statistics 
-          good= {this.state.good}
-          neutral = {this.state.neutral}
-          bad = {this.state.bad}
-          total = {this.countTotalFeedback()}
-          percentage = {this.countPositiveFeedbackPercentage()}
-          ></Statistics>
-        : <Notification message="There is no feedback"></Notification>
-        }
+          {this.state.good || this.state.neutral || this.state.bad ? (
+            <Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              total={this.countTotalFeedback()}
+              percentage={this.countPositiveFeedbackPercentage()}
+            ></Statistics>
+          ) : (
+            <Notification message="There is no feedback"></Notification>
+          )}
         </Section>
       </div>
     );

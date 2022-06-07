@@ -6,10 +6,10 @@ export default class FeedbackOptions extends Component {
   render() {
     const { options, onLeaveFeedback } = this.props;
     return (
-      <div className= {s.wrap}>
+      <div className={s.wrap}>
         {options.map(option => (
           <button
-            className= {s.btn}
+            className={s.btn}
             key={option}
             type="button"
             onClick={onLeaveFeedback}
