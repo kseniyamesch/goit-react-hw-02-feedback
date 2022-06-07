@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import s from './FeedbackOptions.component.css'
+import s from './FeedbackOptions.module.css';
 
 export default class FeedbackOptions extends Component {
   render() {
     const { options, onLeaveFeedback } = this.props;
     return (
-      <div>
+      <div className= {s.wrap}>
         {options.map(option => (
           <button
             className= {s.btn}

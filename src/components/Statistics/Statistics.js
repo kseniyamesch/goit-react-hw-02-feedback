@@ -1,44 +1,45 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import s from './Statistics.module.css';
 
 export default class Statistics extends Component {
   render() {
     const { good, neutral, bad, total, percentage } = this.props;
     return (
-      <ul>
-        <li>
-          <p>
+      <ul className={s.list}>
+        <li className={s.item}>
+          <p className={s.text}>
             {' '}
             Good:
-            <span>{good}</span>
+            <span className={s.number}>{good}</span>
           </p>
         </li>
-        <li>
-          <p>
+        <li className={s.item}>
+          <p className={s.text}>
             {' '}
             Neutral:
-            <span>{neutral}</span>
+            <span className={s.number}>{neutral}</span>
           </p>
         </li>
-        <li>
-          <p>
+        <li className={s.item}>
+          <p className={s.text}>
             {' '}
             Bad:
-            <span>{bad}</span>
+            <span className={s.number}>{bad}</span>
           </p>
         </li>
-        <li>
-          <p>
+        <li className={s.item}>
+          <p className={s.text}>
             {' '}
             Total:
-            <span>{total}</span>
+            <span className={s.number}>{total}</span>
           </p>
         </li>
-        <li>
-          <p>
+        <li className={s.item}>
+          <p className={s.text}>
             {' '}
             Positive feedback:
-            <span>{percentage}%</span>
+            <span className={s.number}>{percentage}%</span>
           </p>
         </li>
       </ul>
