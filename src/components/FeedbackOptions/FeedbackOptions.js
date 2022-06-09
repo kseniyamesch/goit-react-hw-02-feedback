@@ -25,4 +25,5 @@ export default class FeedbackOptions extends Component {
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string),
+  onLeaveFeedback: PropTypes.func.isRequired
 };

@@ -13,12 +13,10 @@ export class App extends Component {
 
   onBtnClick = evt => {
     const { name } = evt.currentTarget;
-    console.log(evt.currentTarget.name);
     this.setState(
       prevState => ({
         [name]: prevState[name] + 1,
       }),
-      () => console.log(this.state)
     );
   };
 
@@ -36,12 +34,12 @@ export class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.onBtnClick}
           ></FeedbackOptions>
         </Section>
         <Section title="Statistics">
-          {this.state.good || this.state.neutral || this.state.bad ? (
+          {this.countTotalFeedback() !== 0 ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
